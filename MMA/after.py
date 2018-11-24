@@ -26,6 +26,7 @@ After storage, setting and command insertion.
 
 from . import gbl
 from MMA.common import *
+import MMA.debug
 
 class AfterData:
     def __init__(self):
@@ -46,7 +47,7 @@ def set(ln):
     dat = AfterData()
     selected = []
 
-    ln, opts = opt2pair(ln, toupper=False)
+    ln, opts = opt2pair(ln, toupper=False, notoptstop=True)
 
     for cmd, opt in opts:
         cmd = cmd.upper()
@@ -109,7 +110,7 @@ def set(ln):
     else:
         afterData.append(dat)
 
-    if gbl.debug:
+    if MMA.debug.debug:
         print("After: Added event '%s' at bar %s." % (' '.join(dat.cmd), dat.bar))
 
 def check():

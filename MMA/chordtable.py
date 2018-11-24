@@ -135,6 +135,10 @@ chordlist = {
              (C, Ds, Eb, F, G, Ab, Bb),
              "Minor 7th with added sharp 9th."),
 
+    'mb9': ((C,    Eb,    G,    Db+12),
+             (C, D, Eb, F, G, A, Db+12),
+             "Minor chord plus flat 9th (no 7th.)"),
+
     '7':    ((C,    E,      G,    Bb ),
              (C, D, E, F, G, A, Bb),
              "7th."),
@@ -142,6 +146,7 @@ chordlist = {
     '7(6)':    ((C,    E,      G, A,   Bb ),
              (C, D, E, F, G, A, Bb),
              "7th with added 6th."),
+
     '7b5':    ((C,    E,      Gb,    Bb ),
              (C, D, E, F, Gb, A, Bb),
              "7th, flat 5."),
@@ -153,6 +158,10 @@ chordlist = {
     'dim7(addM7)': ((C, Eb, Gb, A, B),
              (C, D, Eb, F, Gb, A, B),
              "Diminished tirad with added Major 7th."),
+
+    'dim(b13)':  ((C, Eb, Gb, Bbb, Ab),
+                 (C, D, Eb, F, Gb, Ab, Bbb),
+                 "Diminished seventh, added flat 13th."),
 
     'aug':    ((C,    E,      Gs ),
              (C, D, E, F, Gs, A, B ),
@@ -420,7 +429,11 @@ chordlist = {
     '13b9':  ((C,    E,    G,    Bb, Db+12,  A+12),
              (C, Db, E, F, G, A, Bb),
              "7th (including 5th) plus 13th and flat 9th (11th not voiced)."),
-
+    
+    'M#11':   ((C,    E,    G,    B, Fs+12),
+             (C, D, E, Fs, G, A, B),
+             "Major triad plus sharp 11th."),
+    
     'M13':   ((C,    E,    G,    B, A+12),
              (C, D, E, F, G, A, B),
              "Major 7th (including 5th) plus 13th (9th and  11th not voiced)."),
@@ -491,7 +504,7 @@ aliases = (
     ('+7#9',     'aug7#9',   ''),
     ('+7b9',     'aug7b9',   ''),
     ('7(omit3)', '7omit3',   ''),
-    ('#5',       'aug',      ''),
+    ('(#5)',     'aug',      ''),
     ('7#5b9',    'aug7b9',   ''),
     ('7-9',      '7b9',      ''),
     ('7+9',      '7#9',      ''),
@@ -537,3 +550,8 @@ for a, b, d in aliases:
 
     chordlist[a] = (n, s, d)
 
+### little snippet to print chord info for my accordion chord program.
+##print "chords = {"
+##for a in chordlist:
+##    print "   '%s': ( %s,  \"%s\")," % (a, chordlist[a][0], chordlist[a][2])
+##print "}"
